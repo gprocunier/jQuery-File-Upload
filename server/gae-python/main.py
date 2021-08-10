@@ -20,14 +20,14 @@ import webapp2
 DEBUG=os.environ.get('SERVER_SOFTWARE', '').startswith('Dev')
 WEBSITE = 'https://blueimp.github.io/jQuery-File-Upload/'
 MIN_FILE_SIZE = 1  # bytes
-# Max file size is memcache limit (1MB) minus key size minus overhead:
-MAX_FILE_SIZE = 999000  # bytes
+# Max file size is memcache limit (64MB) minus key size minus overhead:
+MAX_FILE_SIZE = 67108864 # bytes
 IMAGE_TYPES = re.compile('image/(gif|p?jpeg|(x-)?png)')
 ACCEPT_FILE_TYPES = IMAGE_TYPES
 THUMB_MAX_WIDTH = 80
 THUMB_MAX_HEIGHT = 80
 THUMB_SUFFIX = '.'+str(THUMB_MAX_WIDTH)+'x'+str(THUMB_MAX_HEIGHT)+'.png'
-EXPIRATION_TIME = 300  # seconds
+EXPIRATION_TIME = 3600  # seconds
 # If set to None, only allow redirects to the referer protocol+host.
 # Set to a regexp for custom pattern matching against the redirect value:
 REDIRECT_ALLOW_TARGET = None
